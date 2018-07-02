@@ -6,7 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport implements SessionAware {
+public class Validar extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private String userName;
 	private String password;
@@ -18,7 +18,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("user", this.userName);
 			return SUCCESS;
 		}else {
-			addFieldError("errorLogin","El usuario o la contraseña no son correctos");
+			addFieldError("errorLogin","El usuario o la contraseï¿½a no son correctos");
 			return "input";
 		}
 	}
@@ -27,7 +27,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		if(userName.length()<=4 || userName.length()>=10)
 			addFieldError("userName","El nombre de usuario no es valido");
 		if(password.length()<=4 || password.length()>=10)
-			addFieldError("password","La contraseña no es valida");
+			addFieldError("password","La contraseï¿½a no es valida");
 	}
 
 	public String logout() {

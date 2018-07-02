@@ -6,70 +6,21 @@
 
 <struts>
     <constant name="struts.devMode" value="true"/>
-    <constant name="struts.ui.theme" value="simple"/>
-    <package name="default" extends="struts-default">
-    	
-    	<interceptors>
-			<interceptor class="interceptors.LoginInterceptor" name="loginInterceptor">
-			</interceptor>
-			<interceptor-stack name="loginStack">
-				<interceptor-ref name="loginInterceptor" />
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-		</interceptors>
+    <package name="default" namespace="/" extends="struts-default">
 		
-        <action name="index">
-        	<result>/index.jsp</result>
-        </action>
-        
-        <action name="equipos">
-        	<result>/equipos.jsp</result>
-        </action>
-        
-        <action name="jugadores">
-        	<result>/jugadores.jsp</result>
-        </action>
-        
-        <action name="agregarPartido">
-        	<result>/agregarPartido.jsp</result>
-        </action>
-        
-        <action name="registrarPartido" class="actions.AgregarPartidoController" method="execute">
-        	<result>/index.jsp</result>
-        	<result name="ERROR">/index.jsp</result>
-        	<result name="input">/agregarPartido.jsp</result>
-        </action>
-        
-        <action name="inscripcion" class="actions.InscripcionController" method="execute">
-        	<result>/inscripcionPartido.jsp</result>
-        	<result name="ERROR">/index.jsp</result>
-        </action>
-        
-        <action name="inscripcionPartido" class="actions.AgregarJugadorController" method="execute">
-        	<result>/index.jsp</result>
-        	<result name="input">/index.jsp</result>
-        </action>
-        
-        <action name="Login" class="actions.LoginAction" method="login">
-                <result>/index.jsp</result>
-                <result name="input">/index.jsp</result>
-        </action>
-        
-        <action name="LogOut" class="actions.LoginAction" method="logout">
-                <result>/index.jsp</result>
-                <result name="input">/index.jsp</result>
-        </action>
-        
-        <action name="Regresar">
-            <result>/index.jsp</result>
-        </action>
-        
-        <action name="eliminarJugador" class="actions.EliminarJugadorController" method="execute">
-        	<result>/index.jsp</result>
-        </action>
-        
-        <action name="eliminarPartido" class="actions.EliminarPartidoController" method="execute">
-        	<result>/index.jsp</result>
+		<action name="Filtro" class="actions.Filtro" method="display">
+			<result type="redirectAction">
+				index.jsp
+			</result>
+		</action>
+		
+		<action name="Validar" class="actions.Validar">
+			<result name="success">index.jsp</result>
+		</action>
+       
+        <action name="Fff" class="actions.Filtro">
+        	<result name="input">index.jsp</result>
+        	<result name="success">index.jsp</result>
         </action>
         
     </package>

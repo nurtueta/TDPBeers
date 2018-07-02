@@ -5,13 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Ingreso</title>
+<title>TDPBeers</title>
 </head>
 <body>
+
 	<s:form action="Validar">
-		<s:textfield name="userlogin" laber="Ingrese Usuario"/>
+		<s:textfield name="userlogin" label="Ingrese Usuario"/>
+		<br/>
 		<s:password name="userpwd" label="Ingrese Password"/>
+		<br/>
 		<s:submit name="usernombre" label="Ingresar"/>
 	</s:form>
+	<br/>
+
+	<s:form action="Fff" namespace="/" onload="this.submit()">
+
+		<s:property value="selectPuntuacion"/>
+		<s:submit label="Ingresar"/>
+	</s:form>
+
 </body>
 </html>
