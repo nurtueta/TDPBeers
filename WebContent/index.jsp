@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
@@ -8,21 +8,28 @@
 <title>TDPBeers</title>
 </head>
 <body>
-
 	<s:form action="Validar">
 		<s:textfield name="userlogin" label="Ingrese Usuario"/>
-		<br/>
 		<s:password name="userpwd" label="Ingrese Password"/>
+		<s:submit label="Ingresar"/>
+	</s:form>
+	<br/>
+	<s:form action="Filtro">
+		<s:checkboxlist label="Clasificacion" list="#{'1':'Mayor','2':'Menor'}" name="selectClasi" 
+		value="0" onselect=""></s:checkboxlist>
 		<br/>
-		<s:submit name="usernombre" label="Ingresar"/>
+		<s:select label="Cervezas" 
+		headerKey="0" headerValue="-----Select-----"
+		list="#{'1':'Ipa','2':'Roja'}" 
+		name="selectCerveza" />
+		<br/>
+		<s:submit label="Filtrar"/>
 	</s:form>
 	<br/>
 
-	<s:form action="Fff" namespace="/" onload="this.submit()">
 
-		<s:property value="selectPuntuacion"/>
-		<s:submit label="Ingresar"/>
-	</s:form>
+	
+
 
 </body>
 </html>

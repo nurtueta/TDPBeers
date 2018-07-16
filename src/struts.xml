@@ -8,18 +8,12 @@
     <constant name="struts.devMode" value="true"/>
     <package name="default" namespace="/" extends="struts-default">
 		
-		<action name="Filtro" class="actions.Filtro" method="display">
-			<result type="redirectAction">
-				index.jsp
-			</result>
-		</action>
-		
-		<action name="Validar" class="actions.Validar">
-			<result name="success">index.jsp</result>
+		<action name="Validar" class="action.SecionAction">
+			<result name="success">test.jsp</result>
 		</action>
        
-        <action name="Fff" class="actions.Filtro">
-        	<result name="input">index.jsp</result>
+        <action name="Filtro" class="action.FiltroAction">
+        	<result name="none">index.jsp</result>
         	<result name="success">index.jsp</result>
         </action>
         
