@@ -4,9 +4,12 @@ package Informacion;
 import java.io.*;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 public class listaCervezas {
 
 	private static ArrayList<Cerveza> lista;
+	
 	public listaCervezas()
 	{
 		lista=new ArrayList<Cerveza>();		
@@ -14,7 +17,7 @@ public class listaCervezas {
 	
 	private File[] listaArchivos()
 	{
-		//Lista los archivos en el directorio
+		//Lista los archivos .txt en el directorio indicado
 		String ruta="C:\\Users\\Lea\\Desktop\\Archivos";
 		File directorio=new File(ruta);
 		
@@ -24,25 +27,57 @@ public class listaCervezas {
 		    }
 		});
 		
-		return files;
-		//return directorio.listFiles();		
+		return files;		
+	}
+	private File[] listaArchivosImagenes()
+	{
+		//Lista los archivos .png en el directorio indicado
+		String ruta="C:\\Users\\Lea\\Desktop\\Archivos";
+		File directorio=new File(ruta);
+		
+		File[] files = directorio.listFiles(new FilenameFilter() {
+		    public boolean accept(File directorio, String name) {
+		        return name.toLowerCase().endsWith(".jpg");
+		    }
+		});
+		
+		return files;		
 	}
 	
 	public void cargarCervezas()
 	{
 		//Crea tantas instancias de la clase Cerveza como archivos devuelva "listaArchivos". Asigna la info correspondiente a cada instancia y las agrega a la lista de cervezas.
-		
-	
 		for(File archivo: listaArchivos())
 		{
 			//Creo la cerveza y llamo al metodo que inicializa los datos de la misma
 			Cerveza cerv=null;
 			CargarDatosCerv(archivo,cerv);
-			
+			CargarImagenCerv(archivo,cerv);
 			//Agrego cerveza al final de la lista de cervezas
 			lista.add(cerv);
 			
 		}
+	}
+	
+	private void CargarImagenCerv(File archivo, Cerveza cerv)
+	{
+		try
+		{
+			String rutaImagen="";
+			int i=archivo.getPath().length();
+			for(int j=0;j<(i-3);j++)
+			{
+				rutaImagen+=archivo.getPath().charAt(j);
+			}
+			rutaImagen+="jpg";
+			ImageIcon imagen=new ImageIcon("C:\\Users\\Lea\\Desktop\\Archivos\\not found.jpg");
+			if(new ImageIcon(rutaImagen).getImage()!=null)
+				imagen=new ImageIcon(rutaImagen);
+			
+			cerv.setImagen(imagen);
+		}
+		catch(Exception e) {}
+		
 	}
 	
 	private void CargarDatosCerv(File archivo, Cerveza cerv)
