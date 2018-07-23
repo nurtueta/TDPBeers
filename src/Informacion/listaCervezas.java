@@ -8,17 +8,18 @@ import javax.swing.ImageIcon;
 
 public class listaCervezas {
 
-	private static ArrayList<Cerveza> lista;
-	
+	private ArrayList<Cerveza> lista;
+
 	public listaCervezas()
 	{
-		lista=new ArrayList<Cerveza>();		
+		lista=new ArrayList<Cerveza>();	
+		cargarCervezas();
 	}
 	
 	private File[] listaArchivos()
 	{
 		//Lista los archivos .txt en el directorio indicado
-		String ruta="Archivos";
+		String ruta="/TDPBeers/Archivos";
 		File directorio=new File(ruta);
 		
 		File[] files = directorio.listFiles(new FilenameFilter() {
@@ -32,7 +33,7 @@ public class listaCervezas {
 	private File[] listaArchivosImagenes()
 	{
 		//Lista los archivos .png en el directorio indicado
-		String ruta="Archivos";
+		String ruta="/TDPBeers/Archivos";
 		File directorio=new File(ruta);
 		
 		File[] files = directorio.listFiles(new FilenameFilter() {
@@ -70,7 +71,7 @@ public class listaCervezas {
 				rutaImagen+=archivo.getPath().charAt(j);
 			}
 			rutaImagen+="jpg";
-			ImageIcon imagen=new ImageIcon("Archivos\not found.jpg");
+			ImageIcon imagen=new ImageIcon("/TDPBeers/Archivos\not found.jpg");
 			if(new ImageIcon(rutaImagen).getImage()!=null)
 				imagen=new ImageIcon(rutaImagen);
 			
@@ -117,6 +118,14 @@ public class listaCervezas {
 			nombre+=temp.charAt(i);
 		}
 		return nombre;	
+	}
+	
+	public ArrayList<Cerveza> getLista() {
+		return lista;
+	}
+
+	public void setLista(ArrayList<Cerveza> lista) {
+		this.lista = lista;
 	}
 }
 

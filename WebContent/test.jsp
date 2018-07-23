@@ -1,3 +1,4 @@
+<%@ page import="Informacion.listaCervezas" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
@@ -9,5 +10,11 @@
 </head>
 <body>
 	<s:textfield name="userlogin">Ingrese Usuario: </s:textfield>
+	
+	<s:action name="Listado"/>
+	<s:iterator value="lCervezas">
+		<s:property value="getNombre()" />
+	</s:iterator>
+
 </body>
 </html>

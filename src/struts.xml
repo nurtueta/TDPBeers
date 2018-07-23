@@ -7,15 +7,15 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
     <package name="default" namespace="/" extends="struts-default">
-		
-		<action name="Validar" class="action.SecionAction">
-			<result name="success">test.jsp</result>
-		</action>
        
         <action name="Filtro" class="action.FiltroAction">
         	<result name="none">index.jsp</result>
         	<result name="success">index.jsp</result>
         </action>
+        
+        <action name="Listado" class="action.CerveceriasAction">
+			<result name="success">test.jsp</result>
+		</action>
         
     </package>
 </struts>
