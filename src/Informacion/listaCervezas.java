@@ -18,7 +18,7 @@ public class listaCervezas {
 	private File[] listaArchivos()
 	{
 		//Lista los archivos .txt en el directorio indicado
-		String ruta="C:\\Users\\Lea\\Desktop\\Archivos";
+		String ruta="Archivos";
 		File directorio=new File(ruta);
 		
 		File[] files = directorio.listFiles(new FilenameFilter() {
@@ -32,7 +32,7 @@ public class listaCervezas {
 	private File[] listaArchivosImagenes()
 	{
 		//Lista los archivos .png en el directorio indicado
-		String ruta="C:\\Users\\Lea\\Desktop\\Archivos";
+		String ruta="Archivos";
 		File directorio=new File(ruta);
 		
 		File[] files = directorio.listFiles(new FilenameFilter() {
@@ -70,7 +70,7 @@ public class listaCervezas {
 				rutaImagen+=archivo.getPath().charAt(j);
 			}
 			rutaImagen+="jpg";
-			ImageIcon imagen=new ImageIcon("C:\\Users\\Lea\\Desktop\\Archivos\\not found.jpg");
+			ImageIcon imagen=new ImageIcon("Archivos\not found.jpg");
 			if(new ImageIcon(rutaImagen).getImage()!=null)
 				imagen=new ImageIcon(rutaImagen);
 			
