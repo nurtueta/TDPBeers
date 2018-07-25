@@ -6,34 +6,37 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import org.apache.struts2.ServletActionContext;
+
 public class listaCervezas {
 
 	private ArrayList<Cerveza> lista;
+	private Cerveza cerv;
 
 	public listaCervezas()
 	{
 		lista=new ArrayList<Cerveza>();	
+		cerv=null;
 		cargarCervezas();
 	}
 	
-	private File[] listaArchivos()
+	public File[] listaArchivos()
 	{
 		//Lista los archivos .txt en el directorio indicado
-		String ruta="/TDPBeers/Archivos";
+		String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/WEB-INF/files/Archivos");
 		File directorio=new File(ruta);
-		
-		File[] files = directorio.listFiles(new FilenameFilter() {
+		File[] files=directorio.listFiles(new FilenameFilter() {
 		    public boolean accept(File directorio, String name) {
 		        return name.toLowerCase().endsWith(".txt");
 		    }
 		});
-		
 		return files;		
 	}
+	
 	private File[] listaArchivosImagenes()
 	{
 		//Lista los archivos .png en el directorio indicado
-		String ruta="/TDPBeers/Archivos";
+		String ruta="WEB-INF/files/Archivos";
 		File directorio=new File(ruta);
 		
 		File[] files = directorio.listFiles(new FilenameFilter() {
@@ -51,16 +54,14 @@ public class listaCervezas {
 		for(File archivo: listaArchivos())
 		{
 			//Creo la cerveza y llamo al metodo que inicializa los datos de la misma
-			Cerveza cerv=null;
-			CargarDatosCerv(archivo,cerv);
-			CargarImagenCerv(archivo,cerv);
+			CargarDatosCerv(archivo);
+			CargarImagenCerv(archivo);
 			//Agrego cerveza al final de la lista de cervezas
 			lista.add(cerv);
-			
 		}
 	}
 	
-	private void CargarImagenCerv(File archivo, Cerveza cerv)
+	private void CargarImagenCerv(File archivo)
 	{
 		try
 		{
@@ -71,17 +72,17 @@ public class listaCervezas {
 				rutaImagen+=archivo.getPath().charAt(j);
 			}
 			rutaImagen+="jpg";
-			ImageIcon imagen=new ImageIcon("/TDPBeers/Archivos\not found.jpg");
-			if(new ImageIcon(rutaImagen).getImage()!=null)
-				imagen=new ImageIcon(rutaImagen);
-			
-			cerv.setImagen(imagen);
+//			ImageIcon imagen=new ImageIcon("/WEB-INF/files/Archivos/not found.jpg");
+//			if(new ImageIcon(rutaImagen).getImage()!=null)
+//				imagen=new ImageIcon(rutaImagen);
+//			
+			cerv.setImagen(rutaImagen);
 		}
 		catch(Exception e) {}
 		
 	}
 	
-	private void CargarDatosCerv(File archivo, Cerveza cerv)
+	private void CargarDatosCerv(File archivo)
 	//Carga los datos de cada cerveza proveniente de los archivos. Cada cerveza tiene su archivo.
 	{
 		
@@ -116,6 +117,7 @@ public class listaCervezas {
 		while((temp.charAt(i)!='.'))
 		{
 			nombre+=temp.charAt(i);
+			i++;
 		}
 		return nombre;	
 	}

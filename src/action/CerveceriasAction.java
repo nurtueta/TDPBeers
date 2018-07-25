@@ -1,7 +1,7 @@
 package action;
 
 import java.util.ArrayList;
-import Informacion.*;
+import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -10,9 +10,14 @@ public class CerveceriasAction extends ActionSupport{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Cerveza> lCervezas;
+	private List<String> lCervezas;
 	
 	public CerveceriasAction() {
+		lCervezas= new ArrayList<>();
+		lCervezas.add("1");
+		lCervezas.add("2");
+		lCervezas.add("3");
+		lCervezas.add("5");
 	}
 	
 	public static long getSerialversionuid() {
@@ -20,17 +25,22 @@ public class CerveceriasAction extends ActionSupport{
 	}
 
 	public String execute(){
+		lCervezas= new ArrayList<>();
+		lCervezas.add("1");
+		lCervezas.add("2");
+		lCervezas.add("3");
+		lCervezas.add("4");
 //		listaCervezas l=new listaCervezas();
 //		l.cargarCervezas();
 //		lCervezas=l.getLista();
 		return SUCCESS;
 	}
 
-	public ArrayList<Cerveza> getlCervezas() {
+	public List<String> getlCervezas() {
 		return lCervezas;
 	}
 
-	public void setlCervezas(ArrayList<Cerveza> lCervezas) {
+	public void setlCervezas(ArrayList<String> lCervezas) {
 		this.lCervezas = lCervezas;
 	}
 

@@ -8,12 +8,12 @@
     <constant name="struts.devMode" value="true"/>
     <package name="default" namespace="/" extends="struts-default">
        
-        <action name="Filtro" class="action.FiltroAction">
+        <action name="Filtro" class="action.FiltroAction" >
         	<result name="none">index.jsp</result>
         	<result name="success">index.jsp</result>
         </action>
         
-        <action name="Listado" class="action.CerveceriasAction">
+        <action name="cerveceriasAction" class="action.CerveceriasAction">
 			<result name="success">test.jsp</result>
 		</action>
         

@@ -8,13 +8,13 @@
 <title>TDPBeers</title>
 </head>
 <body>
-	<s:form action="Validar">
+	<s:form action="Filtro" namespace="/">
 		<s:textfield name="userlogin" label="Ingrese Usuario"/>
 		<s:password name="userpwd" label="Ingrese Password"/>
 		<s:submit label="Ingresar"/>
 	</s:form>
 	<br/>
-	<s:form action="Filtro">
+	<s:form action="Filtro" namespace="/">
 		<s:checkboxlist label="Clasificacion" list="#{'1':'Mayor','2':'Menor'}" name="selectClasi" 
 		value="0" onselect=""></s:checkboxlist>
 		<br/>

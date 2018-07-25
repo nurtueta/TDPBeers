@@ -1,7 +1,5 @@
 package Informacion;
 
-import javax.swing.ImageIcon;
-
 public class Cerveza {
 	
 	private String nombre;
@@ -13,7 +11,7 @@ public class Cerveza {
 		this.nombre = nombre;
 	}
 
-	private ImageIcon imagen;
+	private String imagen;
 	private String direccion;
 	private String mejorVariedad;
 	private String desc;
@@ -31,11 +29,11 @@ public class Cerveza {
 	public Cerveza() {
 		// TODO Auto-generated constructor stub
 	}
-	public ImageIcon getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(ImageIcon imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
 

@@ -1,4 +1,6 @@
+<%@page import="org.apache.struts2.ServletActionContext"%>
 <%@ page import="Informacion.listaCervezas" %>
+<%@ page import="Informacion.Cerveza" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
@@ -11,10 +13,18 @@
 <body>
 	<s:textfield name="userlogin">Ingrese Usuario: </s:textfield>
 	
-	<s:action name="Listado"/>
-	<s:iterator value="lCervezas">
-		<s:property value="getNombre()" />
-	</s:iterator>
+	<% 
+	listaCervezas l=new listaCervezas();
+	for(Cerveza cerveza: l.getLista())
+	{
+	%>
+	<table id="listaDeCervezas">
+		<%out.print(cerveza.getImagen()); %>
+		<img src="<%cerveza.getImagen();%>">
+		<tr><td>Cerveceria: </td><td><%out.println(cerveza.getNombre()); %></td></tr>
+		<tr><td>Direccion: </td><td><%out.println(cerveza.getDireccion()); %></td></tr>
+	</table>
+	<%} %>
 
 </body>
 </html>
