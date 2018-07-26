@@ -3,9 +3,6 @@ package Informacion;
 
 import java.io.*;
 import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
-
 import org.apache.struts2.ServletActionContext;
 
 public class listaCervezas {
@@ -33,21 +30,6 @@ public class listaCervezas {
 		return files;		
 	}
 	
-	private File[] listaArchivosImagenes()
-	{
-		//Lista los archivos .png en el directorio indicado
-		String ruta="WEB-INF/files/Archivos";
-		File directorio=new File(ruta);
-		
-		File[] files = directorio.listFiles(new FilenameFilter() {
-		    public boolean accept(File directorio, String name) {
-		        return name.toLowerCase().endsWith(".jpg");
-		    }
-		});
-		
-		return files;		
-	}
-	
 	public void cargarCervezas()
 	{
 		//Crea tantas instancias de la clase Cerveza como archivos devuelva "listaArchivos". Asigna la info correspondiente a cada instancia y las agrega a la lista de cervezas.
@@ -65,17 +47,19 @@ public class listaCervezas {
 	{
 		try
 		{
-			String rutaImagen="";
-			int i=archivo.getPath().length();
+			String rutaImagen="img/";
+			int i=archivo.getName().length();
 			for(int j=0;j<(i-3);j++)
 			{
-				rutaImagen+=archivo.getPath().charAt(j);
+				rutaImagen+=archivo.getName().charAt(j);
 			}
 			rutaImagen+="jpg";
-//			ImageIcon imagen=new ImageIcon("/WEB-INF/files/Archivos/not found.jpg");
-//			if(new ImageIcon(rutaImagen).getImage()!=null)
-//				imagen=new ImageIcon(rutaImagen);
-//			
+			//controlar que este el archivo, sino cargar imagen predeterminada
+			String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/");
+			File af = new File(ruta+rutaImagen);
+			if (!af.exists()) { 
+				rutaImagen="img/not found.jpg";
+			}
 			cerv.setImagen(rutaImagen);
 		}
 		catch(Exception e) {}
@@ -85,7 +69,6 @@ public class listaCervezas {
 	private void CargarDatosCerv(File archivo)
 	//Carga los datos de cada cerveza proveniente de los archivos. Cada cerveza tiene su archivo.
 	{
-		
 		try
 		{
 			cerv=new Cerveza();
@@ -100,9 +83,7 @@ public class listaCervezas {
 			cerv.setDesc(linea);
 			linea=buffer.readLine();
 			cerv.setPuntaje(Integer.parseInt(linea));
-			
 			buffer.close();
-			
 		}
 		catch(Exception e) {}	
 	}

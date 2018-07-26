@@ -11,20 +11,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:textfield name="userlogin">Ingrese Usuario: </s:textfield>
-	
 	<% 
 	listaCervezas l=new listaCervezas();
 	for(Cerveza cerveza: l.getLista())
 	{
 	%>
 	<table id="listaDeCervezas">
-		<%out.print(cerveza.getImagen()); %>
-		<img src="<%cerveza.getImagen();%>">
+		<img src="<%out.print(cerveza.getImagen());%>" width="200" height="100"/>
 		<tr><td>Cerveceria: </td><td><%out.println(cerveza.getNombre()); %></td></tr>
 		<tr><td>Direccion: </td><td><%out.println(cerveza.getDireccion()); %></td></tr>
 	</table>
-	<%} %>
+	<%}%>
 
 </body>
 </html>

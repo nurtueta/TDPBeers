@@ -3,32 +3,16 @@ package Informacion;
 public class Cerveza {
 	
 	private String nombre;
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	private String imagen;
 	private String direccion;
 	private String mejorVariedad;
 	private String desc;
 	private int puntaje;
-	
-	/*public Cerveza(ImageIcon im, String dir, String var, String d, int p)
-	{
-		imagen=im;
-		direccion=dir;
-		mejorVariedad=var;
-		desc=d;
-		puntaje=p;
-	}*/
 
 	public Cerveza() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	public String getImagen() {
 		return imagen;
 	}
@@ -55,6 +39,14 @@ public class Cerveza {
 
 	public String getDesc() {
 		return desc;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public void setDesc(String desc) {
