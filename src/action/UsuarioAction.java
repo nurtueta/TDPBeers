@@ -2,7 +2,7 @@ package action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SecionAction extends ActionSupport{
+public class UsuarioAction extends ActionSupport{
 
 	/**
 	 * 
@@ -12,9 +12,12 @@ public class SecionAction extends ActionSupport{
 	private String userlogin;
 	
 	public String execute(){
-		return SUCCESS;
+		if(userpwd.equals("admin"))
+			if(userlogin.equals("admin"))
+				return SUCCESS;
+		return ERROR;
 	}
-//	
+
 	public String getUserpwd() {
 		return userpwd;
 	}
@@ -30,5 +33,4 @@ public class SecionAction extends ActionSupport{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 }
