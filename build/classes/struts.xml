@@ -16,11 +16,5 @@
         <action name="index">
         	<result>/index.jsp</result>
         </action>
-        
-        
-        <action name="cerveceriasAction" class="action.CerveceriasAction">
-			<result name="success">test.jsp</result>
-		</action>
-        
     </package>
 </struts>
