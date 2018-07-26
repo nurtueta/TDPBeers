@@ -1,9 +1,9 @@
 <%@page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<%@ page import="Informacion.listaCervezas" %>
-<%@ page import="Informacion.Cerveza" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="Informacion.listaCervezas"%>
+<%@page import="Informacion.Cerveza"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -15,7 +15,6 @@
 		<s:password name="userpwd" label="Ingrese Password"/>
 		<s:submit label="Ingresar"/>
 	</s:form>
-	
 	<br/>
 <%-- 	<s:form action="Filtro" namespace="/">
 		<s:checkboxlist label="Clasificacion" list="#{'1':'Mayor','2':'Menor'}" name="selectClasi" 
