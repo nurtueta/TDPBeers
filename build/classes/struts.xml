@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE struts PUBLIC
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
-
 <struts>
 	 <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true"/>
@@ -14,13 +12,22 @@
         	<result name="success">/administrador.jsp</result>
         </action>
         
-        <action name="Modificar" class="action.EditarAction" >
-        	<result name="modificar">/administrador.jsp</result>
+        <action name="Editar" class="action.EditarAction">
+        	<result name="modificar">/modificar.jsp</result>
         	<result name="eliminar">/administrador.jsp</result>
+        	<result name="success">/modificar.jsp</result>
         </action>
         
-        <action name="index">
+        <action name="Modificar" class="action.EditarAction" method="modificarCerveceria">
+        	<result name="success">/administrador.jsp</result>
+        </action>
+        
+        <action name="Index">
         	<result>/index.jsp</result>
+        </action>
+        
+        <action name="Administrador">
+        	<result>/administrador.jsp</result>
         </action>
     </package>
 </struts>

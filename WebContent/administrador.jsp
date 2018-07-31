@@ -10,16 +10,15 @@
 <title>TDPBeers(Administrador)</title>
 </head>
 <body>
-	<s:form action="index" namespace="/">
+	<s:form action="Index" namespace="/">
 		<s:submit value="Regresar"/>
 	</s:form>
-	
 	<% 
 	listaCervezas l=new listaCervezas();
 	for(Cerveza cerveza: l.getLista())
 	{
 	%>
-	<s:form action="Modificar">
+	<s:form action="Editar" namespace="/">
 		<table id="listaDeCervezas">
 			<img src="<%out.print(cerveza.getImagen());%>" width="200" height="100"/>
 			<tr><td>Cerveceria: </td><td><%out.println(cerveza.getNombre());%></td></tr>
@@ -30,12 +29,9 @@
 		</table>
 		<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
 		<s:hidden name="nombreCerveceria" value="%{nombre}"/>  
-		<s:submit value="Modificar" method="modificarCerveceria"/>
+		<s:submit value="Modificar" method="obtenerCerveceria"/>
     	<s:submit value="Eliminar" method="eliminarCerveceria"/>
    	</s:form>
 	<%}%>
-	
-	
-	
 </body>
 </html>

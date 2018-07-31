@@ -13,6 +13,7 @@
 	<s:form action="Usuario" namespace="/">
 		<s:textfield name="userlogin" label="Ingrese Usuario"/>
 		<s:password name="userpwd" label="Ingrese Password"/>
+		<s:reset value="Borrar" /> 
 		<s:submit value="Ingresar"/>
 	</s:form>
 	<br/>

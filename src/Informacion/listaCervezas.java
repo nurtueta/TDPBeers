@@ -110,5 +110,18 @@ public class listaCervezas {
 	public void setLista(ArrayList<Cerveza> lista) {
 		this.lista = lista;
 	}
+
+	public Cerveza buscarCerveza(String nombreCerveceria) {
+		//Crea tantas instancias de la clase Cerveza como archivos devuelva "listaArchivos". Asigna la info correspondiente a cada instancia y las agrega a la lista de cervezas.
+		Cerveza x=null;
+		int i=0;
+		while(!lista.isEmpty() && x==null) {
+			if(lista.get(i).getNombre().equals(nombreCerveceria))
+				x=lista.get(i);
+			else
+				i++;
+		}
+		return x;
+	}
 }
 

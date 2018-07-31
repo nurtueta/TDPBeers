@@ -2,6 +2,9 @@ package action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import Informacion.Cerveza;
+import Informacion.listaCervezas;
+
 public class EditarAction extends ActionSupport{
 	
 	/**
@@ -9,6 +12,7 @@ public class EditarAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String nombreCerveceria;
+	private Cerveza cerveza;
 	
 	public EditarAction() {
 	
@@ -18,8 +22,9 @@ public class EditarAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	public String modificarCerveceria() {
-		System.out.println(nombreCerveceria);
+	public String obtenerCerveceria() {
+		listaCervezas x=new listaCervezas();
+		setCerveza(x.buscarCerveza(nombreCerveceria));
 		return "modificar";
 	}
 	
@@ -28,6 +33,10 @@ public class EditarAction extends ActionSupport{
 		return "modificar";
 	}
 	
+	public String modificarCerveceria() {
+		
+		return SUCCESS;
+	}
 	
 	public String getNombreCerveceria() {
 		return nombreCerveceria;
@@ -39,6 +48,14 @@ public class EditarAction extends ActionSupport{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Cerveza getCerveza() {
+		return cerveza;
+	}
+
+	public void setCerveza(Cerveza cerveza) {
+		this.cerveza = cerveza;
 	}
 
 }
