@@ -18,5 +18,8 @@
 			<tr><td><s:submit value="Agregar"/></td></tr>
 		</table>
 	</s:form>
+	<s:form action="Administrador" namespace="/">
+		<s:submit value="Cancelar"/>
+	</s:form>
 </body>
 </html>
