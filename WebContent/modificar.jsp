@@ -8,18 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="Administrador" namespace="/">
-		<s:submit value="Regresar"/>
-	</s:form>
 	<s:form action="Modificar" namespace="/">
 		<table>
-			<tr><td><s:property value="cerveza.getNombre()"/></td></tr>
-			<tr><td><s:property value="cerveza.getDireccion()"/></td></tr>
-			<tr><td><s:property value="cerveza.getMejorVariedad()"/></td></tr>
-			<tr><td><s:property value="cerveza.getDesc()"/></td></tr>
-			<tr><td><s:property value="cerveza.getPuntaje()"/></td></tr>
+			<s:textfield name="cerveceria.nombre" label="Nombre: " readonly="true"/>
+			<s:textfield name="cerveceria.direccion" label="Direccion: "/>
+			<s:textfield name="cerveceria.mejorVariedad" label="Variedad: "/>
+			<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
+			<s:textarea name="cerveceria.desc" label="Descripcion: "/>
 			<tr><td><s:submit value="modificar"/></td></tr>
 		</table>
+	</s:form>
+	<s:form action="Administrador" namespace="/">
+		<s:submit value="Cancelar"/>
 	</s:form>
 </body>
 </html>

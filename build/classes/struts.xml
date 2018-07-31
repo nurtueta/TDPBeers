@@ -15,10 +15,13 @@
         <action name="Editar" class="action.EditarAction">
         	<result name="modificar">/modificar.jsp</result>
         	<result name="eliminar">/administrador.jsp</result>
-        	<result name="success">/modificar.jsp</result>
         </action>
         
         <action name="Modificar" class="action.EditarAction" method="modificarCerveceria">
+        	<result name="success">/administrador.jsp</result>
+        </action>
+        
+        <action name="Agregar" class="action.EditarAction" method="agregarCerveceria">
         	<result name="success">/administrador.jsp</result>
         </action>
         
@@ -29,5 +32,10 @@
         <action name="Administrador">
         	<result>/administrador.jsp</result>
         </action>
+        
+       <action name="PaginaAgregar">
+        	<result>/administrador.jsp</result>
+        </action>
+        
     </package>
 </struts>

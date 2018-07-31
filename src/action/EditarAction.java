@@ -2,7 +2,7 @@ package action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import Informacion.Cerveza;
+import Informacion.Cerveceria;
 import Informacion.listaCervezas;
 
 public class EditarAction extends ActionSupport{
@@ -12,7 +12,7 @@ public class EditarAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String nombreCerveceria;
-	private Cerveza cerveza;
+	private Cerveceria cerveceria;
 	
 	public EditarAction() {
 	
@@ -24,17 +24,21 @@ public class EditarAction extends ActionSupport{
 	
 	public String obtenerCerveceria() {
 		listaCervezas x=new listaCervezas();
-		setCerveza(x.buscarCerveza(nombreCerveceria));
+		setCerveceria(x.buscarCerveza(nombreCerveceria));
 		return "modificar";
 	}
 	
+	//ver como modificar esto para que no tenga que llamara obtener cerveceria adetro del eliminar
 	public String eliminarCerveceria() {
-		System.out.println(nombreCerveceria);
-		return "modificar";
+		obtenerCerveceria();
+		listaCervezas x=new listaCervezas();
+		x.eliminarCerveceria(cerveceria);
+		return "eliminar";
 	}
 	
 	public String modificarCerveceria() {
-		
+		listaCervezas x=new listaCervezas();
+		x.modificarCerveceria(cerveceria);
 		return SUCCESS;
 	}
 	
@@ -50,12 +54,12 @@ public class EditarAction extends ActionSupport{
 		return serialVersionUID;
 	}
 
-	public Cerveza getCerveza() {
-		return cerveza;
+	public Cerveceria getCerveceria() {
+		return cerveceria;
 	}
 
-	public void setCerveza(Cerveza cerveza) {
-		this.cerveza = cerveza;
+	public void setCerveceria(Cerveceria cerveza) {
+		this.cerveceria = cerveza;
 	}
 
 }

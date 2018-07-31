@@ -1,6 +1,6 @@
 package Informacion;
 
-public class Cerveza {
+public class Cerveceria {
 	
 	private String nombre;
 	private String imagen;
@@ -9,7 +9,7 @@ public class Cerveza {
 	private String desc;
 	private int puntaje;
 
-	public Cerveza() {
+	public Cerveceria() {
 		// TODO Auto-generated constructor stub
 	}
 	

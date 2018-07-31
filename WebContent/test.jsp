@@ -1,6 +1,6 @@
 <%@page import="org.apache.struts2.ServletActionContext"%>
 <%@ page import="Informacion.listaCervezas" %>
-<%@ page import="Informacion.Cerveza" %>
+<%@ page import="Informacion.Cerveceria" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
@@ -11,10 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% 
-	listaCervezas l=new listaCervezas();
-	for(Cerveza cerveza: l.getLista())
-	{
+	<%
+		listaCervezas l=new listaCervezas();
+		for(Cerveceria cerveza: l.getLista())
+		{
 	%>
 	<table id="listaDeCervezas">
 		<img src="<%out.print(cerveza.getImagen());%>" width="200" height="100"/>

@@ -7,12 +7,12 @@ import org.apache.struts2.ServletActionContext;
 
 public class listaCervezas {
 
-	private ArrayList<Cerveza> lista;
-	private Cerveza cerv;
+	private ArrayList<Cerveceria> lista;
+	private Cerveceria cerv;
 
 	public listaCervezas()
 	{
-		lista=new ArrayList<Cerveza>();	
+		lista=new ArrayList<Cerveceria>();	
 		cerv=null;
 		cargarCervezas();
 	}
@@ -71,7 +71,7 @@ public class listaCervezas {
 	{
 		try
 		{
-			cerv=new Cerveza();
+			cerv=new Cerveceria();
 			String linea="";
 			cerv.setNombre(obtenerNombreCerv(archivo));
 			BufferedReader buffer = new BufferedReader(new FileReader(archivo.toString()));
@@ -103,17 +103,17 @@ public class listaCervezas {
 		return nombre;	
 	}
 	
-	public ArrayList<Cerveza> getLista() {
+	public ArrayList<Cerveceria> getLista() {
 		return lista;
 	}
 
-	public void setLista(ArrayList<Cerveza> lista) {
+	public void setLista(ArrayList<Cerveceria> lista) {
 		this.lista = lista;
 	}
 
-	public Cerveza buscarCerveza(String nombreCerveceria) {
+	public Cerveceria buscarCerveza(String nombreCerveceria) {
 		//Crea tantas instancias de la clase Cerveza como archivos devuelva "listaArchivos". Asigna la info correspondiente a cada instancia y las agrega a la lista de cervezas.
-		Cerveza x=null;
+		Cerveceria x=null;
 		int i=0;
 		while(!lista.isEmpty() && x==null) {
 			if(lista.get(i).getNombre().equals(nombreCerveceria))
@@ -123,5 +123,17 @@ public class listaCervezas {
 		}
 		return x;
 	}
+
+	public void modificarCerveceria(Cerveceria cerveceria) {
+		//modifico cerveceria
+		System.out.println("Modifico cerveceria : "+cerveceria.getNombre());
+		
+	}
+	
+	public void eliminarCerveceria(Cerveceria cerveceria) {
+		//elimino cerveceria
+		System.out.println("Elimino cerveceria : "+cerveceria.getNombre());
+	}
+
 }
 
