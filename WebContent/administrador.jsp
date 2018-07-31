@@ -28,7 +28,8 @@
 			<tr><td>Puntaje: </td><td><%out.println(cerveza.getPuntaje());%></td></tr>
 			<tr><td>Descripcion: </td><td><%out.println(cerveza.getDesc());%></td></tr>
 		</table>
-		<s:set var="nombreCerveceria"><%out.println(cerveza.getNombre());%></s:set>
+		<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
+		<s:hidden name="nombreCerveceria" value="%{nombre}"/>  
 		<s:submit value="Modificar" method="modificarCerveceria"/>
     	<s:submit value="Eliminar" method="eliminarCerveceria"/>
    	</s:form>

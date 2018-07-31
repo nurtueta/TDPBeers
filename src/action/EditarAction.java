@@ -19,12 +19,12 @@ public class EditarAction extends ActionSupport{
 	}
 	
 	public String modificarCerveceria() {
-		System.out.println("modifico");
+		System.out.println(nombreCerveceria);
 		return "modificar";
 	}
 	
 	public String eliminarCerveceria() {
-		System.out.println("elimino");
+		System.out.println(nombreCerveceria);
 		return "modificar";
 	}
 	
