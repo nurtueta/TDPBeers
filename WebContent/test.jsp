@@ -1,5 +1,5 @@
 <%@page import="org.apache.struts2.ServletActionContext"%>
-<%@ page import="Informacion.listaCervezas" %>
+<%@ page import="Informacion.listaCervecerias" %>
 <%@ page import="Informacion.Cerveceria" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,9 +12,9 @@
 </head>
 <body>
 	<%
-		listaCervezas l=new listaCervezas();
-		for(Cerveceria cerveza: l.getLista())
-		{
+		listaCervecerias l=new listaCervecerias();
+			for(Cerveceria cerveza: l.getLista())
+			{
 	%>
 	<table id="listaDeCervezas">
 		<img src="<%out.print(cerveza.getImagen());%>" width="200" height="100"/>

@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<%@page import="Informacion.listaCervezas"%>
+<%@page import="Informacion.listaCervecerias"%>
 <%@page import="Informacion.Cerveceria"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,9 +17,9 @@
 		<s:submit value="Agregar"/>
 	</s:form>
 	<%
-		listaCervezas l=new listaCervezas();
-		for(Cerveceria cerveza: l.getLista())
-		{
+		listaCervecerias l=new listaCervecerias();
+			for(Cerveceria cerveza: l.getLista())
+			{
 	%>
 	<s:form action="Editar" namespace="/">
 		<table id="listaDeCervezas">

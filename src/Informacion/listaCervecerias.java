@@ -5,12 +5,12 @@ import java.io.*;
 import java.util.ArrayList;
 import org.apache.struts2.ServletActionContext;
 
-public class listaCervezas {
+public class listaCervecerias {
 
 	private ArrayList<Cerveceria> lista;
 	private Cerveceria cerv;
 
-	public listaCervezas()
+	public listaCervecerias()
 	{
 		lista=new ArrayList<Cerveceria>();	
 		cerv=null;
@@ -133,6 +133,12 @@ public class listaCervezas {
 	public void eliminarCerveceria(Cerveceria cerveceria) {
 		//elimino cerveceria
 		System.out.println("Elimino cerveceria : "+cerveceria.getNombre());
+	}
+
+	public void agregarCerveceria(Cerveceria cerveceria) {
+		//agrego cerveceria
+		System.out.println("Agrego cerveceria : "+cerveceria.getNombre());
+		
 	}
 
 }

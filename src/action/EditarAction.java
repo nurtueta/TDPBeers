@@ -3,7 +3,7 @@ package action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import Informacion.Cerveceria;
-import Informacion.listaCervezas;
+import Informacion.listaCervecerias;
 
 public class EditarAction extends ActionSupport{
 	
@@ -13,9 +13,10 @@ public class EditarAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private String nombreCerveceria;
 	private Cerveceria cerveceria;
+	private listaCervecerias lista;
 	
 	public EditarAction() {
-	
+		lista=new listaCervecerias();
 	}
 	
 	public String execute() {
@@ -23,22 +24,24 @@ public class EditarAction extends ActionSupport{
 	}
 	
 	public String obtenerCerveceria() {
-		listaCervezas x=new listaCervezas();
-		setCerveceria(x.buscarCerveza(nombreCerveceria));
+		setCerveceria(lista.buscarCerveza(nombreCerveceria));
 		return "modificar";
 	}
 	
 	//ver como modificar esto para que no tenga que llamara obtener cerveceria adetro del eliminar
 	public String eliminarCerveceria() {
 		obtenerCerveceria();
-		listaCervezas x=new listaCervezas();
-		x.eliminarCerveceria(cerveceria);
+		lista.eliminarCerveceria(cerveceria);
 		return "eliminar";
 	}
 	
 	public String modificarCerveceria() {
-		listaCervezas x=new listaCervezas();
-		x.modificarCerveceria(cerveceria);
+		lista.modificarCerveceria(cerveceria);
+		return SUCCESS;
+	}
+	
+	public String agregarCerveceria() {
+		lista.agregarCerveceria(cerveceria);
 		return SUCCESS;
 	}
 	

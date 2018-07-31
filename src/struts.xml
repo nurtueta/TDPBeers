@@ -34,7 +34,7 @@
         </action>
         
        <action name="PaginaAgregar">
-        	<result>/administrador.jsp</result>
+        	<result>/agregar.jsp</result>
         </action>
         
     </package>
