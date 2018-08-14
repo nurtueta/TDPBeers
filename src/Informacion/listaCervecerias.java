@@ -171,9 +171,8 @@ public class listaCervecerias {
 	public void eliminarCerveceria(Cerveceria cerv) 
 	{
 		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
-		//File archivoEliminar= new File(ruta);
-		//archivoEliminar.delete();
-		System.out.println(""+cerv.getNombre());
+		File archivoEliminar= new File(ruta);
+		archivoEliminar.delete();
 	}
 
 }
