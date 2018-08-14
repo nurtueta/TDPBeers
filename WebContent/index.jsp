@@ -21,19 +21,39 @@
 		<s:submit value="Ingresar"/>
 	</s:form>
 	<br/>
-	<%
-		listaCervecerias l=new listaCervecerias();
-			for(Cerveceria cerveza: l.getLista())
-			{
-	%>
-	<table id="listaDeCervezas">
-		<img src="<%out.print(cerveza.getImagen());%>" width="200" height="100"/>
-		<tr><td>Cerveceria: </td><td><%out.println(cerveza.getNombre());%></td></tr>
-		<tr><td>Direccion: </td><td><%out.println(cerveza.getDireccion());%></td></tr>
-		<tr><td>Variedad: </td><td><%out.println(cerveza.getMejorVariedad());%></td></tr>
-		<tr><td>Puntaje: </td><td><%out.println(cerveza.getPuntaje());%></td></tr>
-		<tr><td>Descripcion: </td><td><%out.println(cerveza.getDesc());%></td></tr>
+	<table class="table table-bordered">
+		<tbody>
+			<%
+				listaCervecerias l=new listaCervecerias();
+				for(Cerveceria cerveza: l.getLista())
+				{
+			%>
+		  	<tr>
+		      	<td><img src="<%out.print(cerveza.getImagen());%>" width="300" height="150"/></td>
+		      	<td><table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td>Cerveceria:</td>
+						<td><%out.println(cerveza.getNombre());%></td>
+					</tr>
+					<tr>
+						<td>Direccion:</td>
+						<td><%out.println(cerveza.getDireccion());%></td>
+					</tr>
+					<tr>
+						<td>Variedad:</td>
+						<td><%out.println(cerveza.getMejorVariedad());%></td>
+					</tr>
+					<tr>
+						<td>Puntaje:</td>
+						<td><%out.println(cerveza.getPuntaje());%></td>
+					</tr>
+				</tbody>
+				</table>
+				</td>
+		    </tr>
+	    	<%}%>
+	    </tbody>
 	</table>
-	<%}%>
 </body>
 </html>

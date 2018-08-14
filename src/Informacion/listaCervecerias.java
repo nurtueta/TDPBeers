@@ -54,7 +54,7 @@ public class listaCervecerias {
 				rutaImagen+=archivo.getName().charAt(j);
 			}
 			rutaImagen+="jpg";
-			//controlar que este el archivo, sino cargar imagen predeterminada
+			//controla que este el archivo, sino cargar imagen predeterminada
 			String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/");
 			File af = new File(ruta+rutaImagen);
 			if (!af.exists()) { 
@@ -139,6 +139,43 @@ public class listaCervecerias {
 		//agrego cerveceria
 		System.out.println("Agrego cerveceria : "+cerveceria.getNombre());
 		
+	}
+	
+	//Desde aca lo nuevo!!!!!
+		//Cambiar los nombres de los metodos
+		
+		
+		/*
+		 * Crea un nuevo archivo con los datos de la cerveza pasada por parametro
+		 */
+	public void nuevaCerv(Cerveceria cerv)
+	{
+		File archivoNuevo=new File (cerv.getNombre()+".txt");
+		try {
+			FileWriter escritor=new FileWriter(archivoNuevo,true);
+			escritor.write(cerv.getDireccion());
+			escritor.write("\n"+cerv.getMejorVariedad());
+			escritor.write("\n"+cerv.getPuntaje());
+			escritor.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+	}
+		//VER RUTA
+		
+		/*
+		 * Reemplaza el archivo anterior de la cerveza por uno nuevo. 
+		 * De ser un archivo muy grande se podria solo modificar la/s lineas que correspondan
+		 */
+	public void reemplazarCerv(Cerveceria cerv)
+	{
+		String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/WEB-INF/files/Archivos");
+		File archivoEliminar= new File(ruta+"/"+cerv.getNombre()+".txt");
+		archivoEliminar.delete();
+		nuevaCerv(cerv);
 	}
 
 }
