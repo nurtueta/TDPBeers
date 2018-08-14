@@ -14,13 +14,9 @@
 	<title>TDPBeers</title>
 </head>
 <body>
-	<s:form action="Usuario" namespace="/">
-		<s:textfield name="userlogin" label="Ingrese Usuario"/>
-		<s:password name="userpwd" label="Ingrese Password"/>
-		<s:reset value="Borrar" /> 
-		<s:submit value="Ingresar"/>
+	<s:form action="Inicio" namespace="/">
+		<s:submit value="Iniciar Sesion"/>
 	</s:form>
-	<br/>
 	<table class="table table-bordered">
 		<tbody>
 			<%

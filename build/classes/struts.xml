@@ -8,7 +8,7 @@
     <package name="default" namespace="/" extends="struts-default">
        
         <action name="Usuario" class="action.UsuarioAction" >
-        	<result name="error">/index.jsp</result>
+        	<result name="error">/inicio.jsp</result>
         	<result name="success">/administrador.jsp</result>
         </action>
         
@@ -23,6 +23,10 @@
         
         <action name="Agregar" class="action.EditarAction" method="agregarCerveceria">
         	<result name="success">/administrador.jsp</result>
+        </action>
+        
+        <action name="Inicio">
+        	<result>/inicio.jsp</result>
         </action>
         
         <action name="Index">

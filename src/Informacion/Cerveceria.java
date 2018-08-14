@@ -6,7 +6,6 @@ public class Cerveceria {
 	private String imagen;
 	private String direccion;
 	private String mejorVariedad;
-	private String desc;
 	private int puntaje;
 
 	public Cerveceria() {
@@ -36,10 +35,6 @@ public class Cerveceria {
 	public void setMejorVariedad(String mejorVariedad) {
 		this.mejorVariedad = mejorVariedad;
 	}
-
-	public String getDesc() {
-		return desc;
-	}
 	
 	public String getNombre() {
 		return nombre;
@@ -49,17 +44,11 @@ public class Cerveceria {
 		this.nombre = nombre;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
 	public int getPuntaje() {
 		return puntaje;
 	}
 
 	public void setPuntaje(int puntaje) {
 		this.puntaje = puntaje;
-	}
-	
-	
+	}	
 }

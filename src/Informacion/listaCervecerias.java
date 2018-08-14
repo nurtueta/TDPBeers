@@ -20,14 +20,15 @@ public class listaCervecerias {
 	public File[] listaArchivos()
 	{
 		//Lista los archivos .txt en el directorio indicado
-		String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/WEB-INF/files/Archivos");
+		//String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/WEB-INF/files/Archivos");
+		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos";
 		File directorio=new File(ruta);
 		File[] files=directorio.listFiles(new FilenameFilter() {
 		    public boolean accept(File directorio, String name) {
 		        return name.toLowerCase().endsWith(".txt");
 		    }
 		});
-		return files;		
+		return files;
 	}
 	
 	public void cargarCervezas()
@@ -80,8 +81,6 @@ public class listaCervecerias {
 			linea=buffer.readLine();
 			cerv.setMejorVariedad(linea);
 			linea=buffer.readLine();
-			cerv.setDesc(linea);
-			linea=buffer.readLine();
 			cerv.setPuntaje(Integer.parseInt(linea));
 			buffer.close();
 		}
@@ -123,23 +122,8 @@ public class listaCervecerias {
 		}
 		return x;
 	}
-
-	public void modificarCerveceria(Cerveceria cerveceria) {
-		//modifico cerveceria
-		System.out.println("Modifico cerveceria : "+cerveceria.getNombre());
-		
-	}
 	
-	public void eliminarCerveceria(Cerveceria cerveceria) {
-		//elimino cerveceria
-		System.out.println("Elimino cerveceria : "+cerveceria.getNombre());
-	}
-
-	public void agregarCerveceria(Cerveceria cerveceria) {
-		//agrego cerveceria
-		System.out.println("Agrego cerveceria : "+cerveceria.getNombre());
-		
-	}
+	
 	
 	//Desde aca lo nuevo!!!!!
 		//Cambiar los nombres de los metodos
@@ -148,20 +132,26 @@ public class listaCervecerias {
 		/*
 		 * Crea un nuevo archivo con los datos de la cerveza pasada por parametro
 		 */
-	public void nuevaCerv(Cerveceria cerv)
+	public void agregarCerveceria(Cerveceria cerv)
 	{
-		File archivoNuevo=new File (cerv.getNombre()+".txt");
+		//File archivoNuevo=new File (ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt"));
+		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
+		File archivoNuevo= new File(ruta);
 		try {
+			System.out.println("asd");
 			FileWriter escritor=new FileWriter(archivoNuevo,true);
 			escritor.write(cerv.getDireccion());
 			escritor.write("\n"+cerv.getMejorVariedad());
 			escritor.write("\n"+cerv.getPuntaje());
 			escritor.close();
+			System.out.println(getClass().getResource("/").getPath());
+		//	System.out.println("puto"+System.getProperty("user.id));
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 				
 	}
 		//VER RUTA
@@ -170,12 +160,20 @@ public class listaCervecerias {
 		 * Reemplaza el archivo anterior de la cerveza por uno nuevo. 
 		 * De ser un archivo muy grande se podria solo modificar la/s lineas que correspondan
 		 */
-	public void reemplazarCerv(Cerveceria cerv)
+	public void modificarCerveceria(Cerveceria cerv)
 	{
-		String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/WEB-INF/files/Archivos");
-		File archivoEliminar= new File(ruta+"/"+cerv.getNombre()+".txt");
+		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
+		File archivoEliminar= new File(ruta);
 		archivoEliminar.delete();
-		nuevaCerv(cerv);
+		agregarCerveceria(cerv);
+	}
+	
+	public void eliminarCerveceria(Cerveceria cerv) 
+	{
+		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
+		//File archivoEliminar= new File(ruta);
+		//archivoEliminar.delete();
+		System.out.println(""+cerv.getNombre());
 	}
 
 }

@@ -14,7 +14,6 @@
 			<s:textfield name="cerveceria.direccion" label="Direccion: "/>
 			<s:textfield name="cerveceria.mejorVariedad" label="Variedad: "/>
 			<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
-			<s:textarea name="cerveceria.desc" label="Descripcion: "/>
 			<tr><td><s:submit value="Modificar"/></td></tr>
 		</table>
 	</s:form>

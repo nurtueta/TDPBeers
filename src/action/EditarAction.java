@@ -30,7 +30,6 @@ public class EditarAction extends ActionSupport{
 	
 	//ver como modificar esto para que no tenga que llamara obtener cerveceria adetro del eliminar
 	public String eliminarCerveceria() {
-		obtenerCerveceria();
 		lista.eliminarCerveceria(cerveceria);
 		return "eliminar";
 	}
