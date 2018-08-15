@@ -152,6 +152,9 @@ public class listaCervecerias {
 			e.printStackTrace();
 		}
 		
+		//agregar imagen de variable y archivoImagen
+		//System.out.println(cerv.getArchivoImagen().getId());
+		
 				
 	}
 		//VER RUTA

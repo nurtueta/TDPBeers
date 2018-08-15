@@ -1,9 +1,12 @@
 package Informacion;
 
+import org.apache.struts2.components.File;
+
 public class Cerveceria {
 	
 	private String nombre;
 	private String imagen;
+	private File archivoImagen;
 	private String direccion;
 	private String mejorVariedad;
 	private int puntaje;
@@ -50,5 +53,13 @@ public class Cerveceria {
 
 	public void setPuntaje(int puntaje) {
 		this.puntaje = puntaje;
+	}
+
+	public File getArchivoImagen() {
+		return archivoImagen;
+	}
+
+	public void setArchivoImagen(File archivoImagen) {
+		this.archivoImagen = archivoImagen;
 	}	
 }

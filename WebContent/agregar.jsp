@@ -19,6 +19,7 @@
 			<s:textfield name="cerveceria.direccion" label="Direccion: "/>
 			<s:textfield name="cerveceria.mejorVariedad" label="Variedad: "/>
 			<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
+			<s:file name="archivoImagen" label="Carga Imagen"/>
 			<tr><td><s:submit value="Agregar"/></td></tr>
 		</table>
 	</s:form>
