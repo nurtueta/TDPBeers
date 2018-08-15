@@ -2,6 +2,12 @@ package Informacion;
 
 import org.apache.struts2.components.File;
 
+/**
+ * Clase encargada de representar la cerveceria
+ * @author Urtueta, Nahuel
+ * @author Volpe, Leandro
+ *
+ */
 public class Cerveceria {
 	
 	private String nombre;

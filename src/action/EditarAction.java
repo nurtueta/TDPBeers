@@ -5,11 +5,14 @@ import com.opensymphony.xwork2.ActionSupport;
 import Informacion.Cerveceria;
 import Informacion.listaCervecerias;
 
+/**
+ * Clase encargada del manejo de las acciones
+ * @author Urtueta, Nahuel
+ * @author Volpe, Leandro
+ *
+ */
 public class EditarAction extends ActionSupport{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private String nombreCerveceria;
 	private Cerveceria cerveceria;

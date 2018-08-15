@@ -1,12 +1,14 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * Clase encargada del manejo de las acciones del usuario
+ * @author Urtueta, Nahuel
+ * @author Volpe, Leandro
+ *
+ */
 public class UsuarioAction extends ActionSupport{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String userpwd;
 	private String userlogin;
