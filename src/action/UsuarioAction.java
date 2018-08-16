@@ -13,11 +13,20 @@ public class UsuarioAction extends ActionSupport{
 	private String userpwd;
 	private String userlogin;
 	
-	public String execute(){
-		if(userpwd.equals("admin"))
-			if(userlogin.equals("admin"))
+	public String login(){
+		if(userpwd.equals("admin") && userlogin.equals("admin"))
 				return SUCCESS;
-		return SUCCESS;
+		else {
+			addFieldError("userlogin","El usuario o la contraseña son incorrectos");
+			return ERROR;
+		}
+	}
+	
+	public void validate() {
+		if(userlogin.length()<=4 || userlogin.length()>=10)
+			addFieldError("userlogin","El usuario debe contener entre 4 y 10 caracteres.");
+		if(userpwd.length()<=4 || userpwd.length()>=10)
+			addFieldError("userpwd","La contraseña debe contener entre 4 y 10 caracteres.");
 	}
 
 	public String getUserpwd() {

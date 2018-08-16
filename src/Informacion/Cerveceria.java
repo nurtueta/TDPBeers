@@ -65,7 +65,8 @@ public class Cerveceria {
 		return archivoImagen;
 	}
 
-	public void setArchivoImagen(File archivoImagen) {
-		this.archivoImagen = archivoImagen;
-	}	
+	public void setArchivoImagen(File Image) {
+		this.archivoImagen = Image;
+	}
+	
 }

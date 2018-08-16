@@ -1,5 +1,7 @@
 package action;
 
+import org.apache.struts2.components.File;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import Informacion.Cerveceria;
@@ -11,42 +13,20 @@ import Informacion.listaCervecerias;
  * @author Volpe, Leandro
  *
  */
-public class EditarAction extends ActionSupport{
+public abstract class EditarAction extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;
-	private String nombreCerveceria;
-	private Cerveceria cerveceria;
-	private listaCervecerias lista;
+	protected String nombreCerveceria;
+	protected Cerveceria cerveceria;
+	protected listaCervecerias lista;
+	protected File archivo;
+	
 	
 	public EditarAction() {
 		lista=new listaCervecerias();
 	}
 	
-	public String execute() {
-		return SUCCESS;
-	}
-	
-	public String obtenerCerveceria() {
-		setCerveceria(lista.buscarCerveza(nombreCerveceria));
-		return "modificar";
-	}
-	
-	//ver como modificar esto para que no tenga que llamara obtener cerveceria adetro del eliminar
-	public String eliminarCerveceria() {
-		setCerveceria(lista.buscarCerveza(nombreCerveceria));
-		lista.eliminarCerveceria(cerveceria);
-		return "eliminar";
-	}
-	
-	public String modificarCerveceria() {
-		lista.modificarCerveceria(cerveceria);
-		return SUCCESS;
-	}
-	
-	public String agregarCerveceria() {
-		lista.agregarCerveceria(cerveceria);
-		return SUCCESS;
-	}
+	public abstract void validate();
 	
 	public String getNombreCerveceria() {
 		return nombreCerveceria;

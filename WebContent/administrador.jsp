@@ -15,7 +15,7 @@
   </head>
   <body>
 	<s:form action="Index" namespace="/">
-		<s:submit value="Regresar"/>
+		<s:submit value="Cerrar sesion"/>
 	</s:form>
 	<s:form action="PaginaAgregar">
 		<s:submit value="Agregar"/>
@@ -25,19 +25,23 @@
 			for(Cerveceria cerveza: l.getLista())
 			{
 	%>
-	<s:form action="Editar" namespace="/">
 		<table id="listaDeCervezas">
 			<img src="<%out.print(cerveza.getImagen());%>" width="200" height="100"/>
 			<tr><td>Cerveceria: </td><td><%out.println(cerveza.getNombre());%></td></tr>
 			<tr><td>Direccion: </td><td><%out.println(cerveza.getDireccion());%></td></tr>
-			<tr><td>Variedad: </td><td><%out.println(cerveza.getMejorVariedad());%></td></tr>
+			<tr><td>Mejor variedad: </td><td><%out.println(cerveza.getMejorVariedad());%></td></tr>
 			<tr><td>Puntaje: </td><td><%out.println(cerveza.getPuntaje());%></td></tr>
 		</table>
-		<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
-		<s:hidden name="nombreCerveceria" value="%{nombre}"/>  
-		<s:submit value="Modificar" method="obtenerCerveceria"/>
-    	<s:submit value="Eliminar" method="eliminarCerveceria"/>
-   	</s:form>
+		<s:form action="Editar" namespace="/">
+			<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
+			<s:hidden name="nombreCerveceria" value="%{nombre}"/> 
+			<s:submit value="Modificar" method="modificar"/>
+	   	</s:form>
+		<s:form action="Eliminar" namespace="/">
+			<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
+			<s:hidden name="nombreCerveceria" value="%{nombre}"/> 
+    	<s:submit value="Eliminar"/>
+    	</s:form>
 	<%}%>
 </body>
 </html>

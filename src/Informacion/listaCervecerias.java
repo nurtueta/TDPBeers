@@ -157,13 +157,11 @@ public class listaCervecerias {
 		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
 		File archivoNuevo= new File(ruta);
 		try {
-			System.out.println("asd");
 			FileWriter escritor=new FileWriter(archivoNuevo,true);
 			escritor.write(cerv.getDireccion());
 			escritor.write("\n"+cerv.getMejorVariedad());
 			escritor.write("\n"+cerv.getPuntaje());
 			escritor.close();
-			System.out.println(getClass().getResource("/").getPath());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

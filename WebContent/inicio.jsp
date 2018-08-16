@@ -15,8 +15,10 @@
 	<s:form action="Usuario" namespace="/">
 		<s:textfield name="userlogin" label="Ingrese Usuario"/>
 		<s:password name="userpwd" label="Ingrese Password"/>
-		<s:reset value="Borrar" /> 
 		<s:submit value="Ingresar"/>
+	</s:form>
+	<s:form action="Invitado" namespace="/">
+		<s:submit value="Ingresar como invitado"/>
 	</s:form>
 </body>
 </html>

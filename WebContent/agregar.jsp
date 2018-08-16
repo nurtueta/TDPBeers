@@ -17,9 +17,9 @@
 		<table>
 			<s:textfield name="cerveceria.nombre" label="Nombre: "/>
 			<s:textfield name="cerveceria.direccion" label="Direccion: "/>
-			<s:textfield name="cerveceria.mejorVariedad" label="Variedad: "/>
+			<s:textfield name="cerveceria.mejorVariedad" label="Mejor variedad: "/>
 			<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
-			<s:file name="archivoImagen" label="Carga Imagen"/>
+			<s:file name="archivo" label="Carga Imagen .jpg" enctype="multipart/form-data"/>
 			<tr><td><s:submit value="Agregar"/></td></tr>
 		</table>
 	</s:form>

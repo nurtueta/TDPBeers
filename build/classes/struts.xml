@@ -7,22 +7,33 @@
     <constant name="struts.devMode" value="true"/>
     <package name="default" namespace="/" extends="struts-default">
        
-        <action name="Usuario" class="action.UsuarioAction" >
+        <action name="Usuario" class="action.UsuarioAction" method="login">
+        	<result name="input">/inicio.jsp</result>
         	<result name="error">/inicio.jsp</result>
         	<result name="success">/administrador.jsp</result>
         </action>
         
-        <action name="Editar" class="action.EditarAction">
+        <action name="Editar" class="action.AgregarModificarAction">
+        	<result name="modificado">/administrador.jsp</result>
+        	<result name="input">/modificar.jsp</result>
         	<result name="modificar">/modificar.jsp</result>
+        </action>
+        
+        <action name="Eliminar" class="action.EliminarAction" method="eliminarCerveceria">
+        	<result name="input">/administrador.jsp</result>
         	<result name="eliminar">/administrador.jsp</result>
         </action>
         
-        <action name="Modificar" class="action.EditarAction" method="modificarCerveceria">
-        	<result name="success">/administrador.jsp</result>
-        </action>
-        
-        <action name="Agregar" class="action.EditarAction" method="agregarCerveceria">
-        	<result name="success">/administrador.jsp</result>
+        <action name="Agregar" class="action.AgregarModificarAction" method="agregarCerveceria">
+       		<interceptor-ref name="fileUpload">  
+                <param name="maximumSize">2097152</param>
+                <param name="allowedTypes">  
+                    image/png,image/gif,image/jpeg,image/pjpeg  
+                </param>  
+            </interceptor-ref>  
+            <interceptor-ref name="defaultStack"/>
+        	<result name="input">/agregar.jsp</result>
+        	<result name="agregar">/administrador.jsp</result>
         </action>
         
         <action name="Inicio">
@@ -35,6 +46,10 @@
         
         <action name="Administrador">
         	<result>/administrador.jsp</result>
+        </action>
+        
+        <action name="Invitado">
+        	<result>/index.jsp</result>
         </action>
         
        <action name="PaginaAgregar">

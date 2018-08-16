@@ -8,13 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="Modificar" namespace="/">
+	<s:form action="Editar" namespace="/">
 		<table>
 			<s:textfield name="cerveceria.nombre" label="Nombre: " readonly="true"/>
 			<s:textfield name="cerveceria.direccion" label="Direccion: "/>
-			<s:textfield name="cerveceria.mejorVariedad" label="Variedad: "/>
+			<s:textfield name="cerveceria.mejorVariedad" label="Mejor variedad: "/>
 			<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
-			<tr><td><s:submit value="Modificar"/></td></tr>
+			<tr><td><s:submit value="Modificar" method="modificarCerveceria"/></td></tr>
 		</table>
 	</s:form>
 	<s:form action="Administrador" namespace="/">
