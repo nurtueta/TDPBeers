@@ -22,13 +22,13 @@
 		</div>
 	</div>
 	
-	<div class="container-fluid"  style="margin-top:  68px;">
+	<div class="container-fluid bg-primary"  style="padding-top:  30px;padding-bottom: 10px;">
 	<%
 		listaCervecerias l=new listaCervecerias();
 		for(Cerveceria cerveza: l.getLista())
 		{
 	%>	
-	  <div class="row border border-primary p-3 mb-2 text-dark" style="margin-bottom:  20px;margin-left:  20px;margin-right:  20px;margin-top:	20px;">
+	  <div class="row border border-primary p-3 mb-2 bg-light text-dark" style="margin-bottom:  20px;margin-left:  20px;margin-right:  20px;margin-top:	20px;">
 	      		<div class="col-md-4">
 	      			<img src="<%out.print(cerveza.getImagen());%>" class="rounded col-md-12" width="fit-content" height="fit-content">
 	      		</div>
