@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">    
-	<title>TDPBeers</title>
+	<title>Cerveceria</title>
 </head>
 <body>
 	<div class="fixed-top">
@@ -28,9 +28,10 @@
 		for(Cerveceria cerveza: l.getLista())
 		{
 	%>	
-	  <div class="row border border-primary p-3 mb-2 bg-light text-dark" style="margin-bottom:  20px;margin-left:  20px;margin-right:  20px;margin-top:	20px;">
+	  <div class="row rounded border border-primary p-3 mb-2 bg-light text-dark" style="margin-bottom:  20px;margin-left:  20px;margin-right:  20px;margin-top:	20px;
+	  			border-radius: 2rem!important;">
 	      		<div class="col-md-4">
-	      			<img src="<%out.print(cerveza.getImagen());%>" class="rounded col-md-12" width="fit-content" height="fit-content">
+	      			<img src="<%out.print(cerveza.getImagen());%>" class="col-md-12" width="fit-content" height="fit-content">
 	      		</div>
 		      	<div class="col-md-8">
 		      		<table class="table table-striped">
