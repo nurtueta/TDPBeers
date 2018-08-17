@@ -14,42 +14,48 @@
 	<title>TDPBeers</title>
 </head>
 <body>
-	<s:form action="Inicio" namespace="/">
-		<s:submit value="Iniciar Sesion"/>
-	</s:form>
-	<table class="table table-bordered">
-		<tbody>
-			<%
-				listaCervecerias l=new listaCervecerias();
-				for(Cerveceria cerveza: l.getLista())
-				{
-			%>
-		  	<tr>
-		      	<td><img src="<%out.print(cerveza.getImagen());%>" width="300" height="150"/></td>
-		      	<td><table class="table table-bordered">
-				<tbody>
-					<tr>
-						<td>Cerveceria:</td>
-						<td><%out.println(cerveza.getNombre());%></td>
-					</tr>
-					<tr>
-						<td>Direccion:</td>
-						<td><%out.println(cerveza.getDireccion());%></td>
-					</tr>
-					<tr>
-						<td>Variedad:</td>
-						<td><%out.println(cerveza.getMejorVariedad());%></td>
-					</tr>
-					<tr>
-						<td>Puntaje:</td>
-						<td><%out.println(cerveza.getPuntaje());%></td>
-					</tr>
-				</tbody>
-				</table>
-				</td>
-		    </tr>
-	    	<%}%>
-	    </tbody>
-	</table>
+	<div class="fixed-top">
+		<div class="container-fluid bg-primary mb-3" style="padding-top: 10px; padding-bottom:10px;">
+			<s:form action="Inicio" namespace="/">
+				<s:submit value="Iniciar Sesion"/>
+			</s:form>
+		</div>
+	</div>
+	
+	<div class="container-fluid"  style="margin-top:  68px;">
+	<%
+		listaCervecerias l=new listaCervecerias();
+		for(Cerveceria cerveza: l.getLista())
+		{
+	%>	
+	  <div class="row border border-primary p-3 mb-2 text-dark" style="margin-bottom:  20px;margin-left:  20px;margin-right:  20px;margin-top:	20px;">
+	      		<div class="col-md-4">
+	      			<img src="<%out.print(cerveza.getImagen());%>" class="rounded col-md-12" width="fit-content" height="fit-content">
+	      		</div>
+		      	<div class="col-md-8">
+		      		<table class="table table-striped">
+                        <tbody>
+                            <tr class="row">
+                                <th class="col-md-4">Cerveceria:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getNombre());%></td>
+                        	</tr>
+                        	<tr class="row">
+                                <th class="col-md-4">Direccion:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getDireccion());%></td>
+                        	</tr>
+                        	<tr class="row">
+                                <th class="col-md-4">Mejor variedad:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getMejorVariedad());%></td>
+                        	</tr>
+                        	<tr class="row">
+                                <th class="col-md-4">Puntaje:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getPuntaje());%></td>
+                        	</tr>
+                    	</tbody>
+                    </table>
+				</div>
+		</div>
+   	<%}%>
+   	</div>
 </body>
 </html>

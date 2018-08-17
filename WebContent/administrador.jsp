@@ -14,34 +14,74 @@
     <title>TDPBeers (Administrador)</title>
   </head>
   <body>
-	<s:form action="Index" namespace="/">
-		<s:submit value="Cerrar sesion"/>
-	</s:form>
-	<s:form action="PaginaAgregar">
-		<s:submit value="Agregar"/>
-	</s:form>
+  	<div class="fixed-top">
+		<div class="row container-fluid bg-primary mb-3" style="padding-top: 10px; padding-bottom:10px;">
+			<div class="col-md-2">
+	  			<s:form action="Index" namespace="/">
+					<s:submit value="Cerrar sesion"/>
+				</s:form>
+  			</div>
+  			<div class="col-md-2">
+	  			<s:form action="PaginaAgregar">
+					<s:submit value="Agregar"/>
+				</s:form>
+  			</div>
+		</div>
+	</div>
+  	<div class="row container-fluid" style="padding-top: 10px;">
+  		
+	</div>
+	<div class="container-fluid">
 	<%
 		listaCervecerias l=new listaCervecerias();
-			for(Cerveceria cerveza: l.getLista())
-			{
-	%>
-		<table id="listaDeCervezas">
-			<img src="<%out.print(cerveza.getImagen());%>" width="200" height="100"/>
-			<tr><td>Cerveceria: </td><td><%out.println(cerveza.getNombre());%></td></tr>
-			<tr><td>Direccion: </td><td><%out.println(cerveza.getDireccion());%></td></tr>
-			<tr><td>Mejor variedad: </td><td><%out.println(cerveza.getMejorVariedad());%></td></tr>
-			<tr><td>Puntaje: </td><td><%out.println(cerveza.getPuntaje());%></td></tr>
-		</table>
-		<s:form action="Editar" namespace="/">
-			<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
-			<s:hidden name="nombreCerveceria" value="%{nombre}"/> 
-			<s:submit value="Modificar" method="modificar"/>
-	   	</s:form>
-		<s:form action="Eliminar" namespace="/">
-			<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
-			<s:hidden name="nombreCerveceria" value="%{nombre}"/> 
-    	<s:submit value="Eliminar"/>
-    	</s:form>
-	<%}%>
+		for(Cerveceria cerveza: l.getLista())
+		{
+	%>	
+	  <div class="row border border-primary p-3 mb-2 text-dark" style="margin-top:  20px;margin-bottom:  20px;margin-left:  20px;margin-right:  20px;">
+	      		<div class="col-md-4">
+	      			<img src="<%out.print(cerveza.getImagen());%>" class="rounded col-md-12" width="fit-content" height="fit-content">
+	      		</div>
+		      	<div class="col-md-8">
+		      		<table class="table table-striped">
+                        <tbody>
+                            <tr class="row">
+                                <th class="col-md-4">Cerveceria:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getNombre());%></td>
+                        	</tr>
+                        	<tr class="row">
+                                <th class="col-md-4">Direccion:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getDireccion());%></td>
+                        	</tr>
+                        	<tr class="row">
+                                <th class="col-md-4">Mejor variedad:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getMejorVariedad());%></td>
+                        	</tr>
+                        	<tr class="row">
+                                <th class="col-md-4">Puntaje:</th>
+                            	<td class="col-md-8"><%out.println(cerveza.getPuntaje());%></td>
+                        	</tr>
+                        	<tr class="row">
+                        		<td class="col-md-8"/>
+	                        	<td class="col-md-2">
+	                        		<s:form action="Editar" namespace="/">
+										<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
+										<s:hidden name="nombreCerveceria" value="%{nombre}"/> 
+										<s:submit value="Modificar" method="modificar"/>
+		   							</s:form>
+		   						</td>
+		   						<td class="col-md-2">
+		   							<s:form action="Eliminar" namespace="/">
+										<s:set name="nombre"><%out.println(cerveza.getNombre());%></s:set> 
+										<s:hidden name="nombreCerveceria" value="%{nombre}"/> 
+		    							<s:submit value="Eliminar"/>
+	    							</s:form>
+	    						</td>
+	    					</tr>  
+                    	</tbody>
+                    </table>
+				</div>
+		</div>
+   	<%}%>
+   	</div>
 </body>
 </html>
