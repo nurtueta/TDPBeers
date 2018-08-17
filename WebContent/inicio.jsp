@@ -12,18 +12,20 @@
 	<title>Cerveceria - Inicio Sesion</title>
 </head>
 <body>
-	<div style="display:flex;flex-direction:  column;align-items: center;height:  100vh;justify-content: center;">
-		<div>
-			<s:form action="Usuario" namespace="/">
-				<s:textfield name="userlogin" label="Ingrese Usuario"/>
-				<s:password name="userpwd" label="Ingrese Password"/>
-				<s:submit value="Ingresar"/>
-			</s:form>
-		</div>
-		<div>
-			<s:form action="Invitado" namespace="/">
-				<s:submit value="Ingresar como invitado"/>
-			</s:form>
+	<div class="bg-primary" style="display:flex;flex-direction:  column;align-items: center;height:  100vh;justify-content: center;">
+		<div class="bg-light"  style="padding:  30px; border-radius: 2rem!important;">
+			<div>
+				<s:form action="Usuario" namespace="/">
+					<s:textfield name="userlogin" label="Ingrese Usuario"/>
+					<s:password name="userpwd" label="Ingrese Password"/>
+					<s:submit value="Ingresar"/>
+				</s:form>
+			</div>
+			<div style="display: flex;justify-content: flex-end;">
+				<s:form action="Invitado" namespace="/">
+					<s:submit value="Ingresar como invitado"/>
+				</s:form>
+			</div>
 		</div>
 	</div>
 </body>

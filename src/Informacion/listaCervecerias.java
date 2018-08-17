@@ -121,14 +121,6 @@ public class listaCervecerias {
 		return nombre;	
 	}
 	
-	public ArrayList<Cerveceria> getLista() {
-		return lista;
-	}
-
-	public void setLista(ArrayList<Cerveceria> lista) {
-		this.lista = lista;
-	}
-
 	/**
 	 * Busca la cerveceria pasada por parametro en la lis
 	 * @param nombreCerveceria
@@ -146,7 +138,6 @@ public class listaCervecerias {
 		return c;
 	}	
 	
-	
 	/**
 	 * Crea un nuevo archivo con los datos de la cerveza pasada por parametro
 	 * @param cerv de tipo Cerveceria
@@ -163,14 +154,12 @@ public class listaCervecerias {
 			escritor.write("\n"+cerv.getPuntaje());
 			escritor.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		//agregar imagen de variable y archivoImagen
 		//System.out.println(cerv.getArchivoImagen().getId());
-		
-				
+			
 	}
 	
 	/**
@@ -196,6 +185,15 @@ public class listaCervecerias {
 		File archivoEliminar= new File(ruta);
 		archivoEliminar.delete();
 	}
+	
+	public ArrayList<Cerveceria> getLista() {
+		return lista;
+	}
+
+	public void setLista(ArrayList<Cerveceria> lista) {
+		this.lista = lista;
+	}
+
 
 }
 

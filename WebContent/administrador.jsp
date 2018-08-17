@@ -35,7 +35,7 @@
 		{
 	%>	
 	  <div class="row border border-primary p-3 mb-2 bg-light text-dark" style="margin-top:  20px;margin-bottom:  20px;margin-left:  20px;margin-right:  20px;
-	  			border-radius: 2rem!important;"">
+	  			border-radius: 2rem!important;">
 	      		<div class="col-md-4">
 	      			<img src="<%out.print(cerveza.getImagen());%>" class="rounded col-md-12" width="fit-content" height="fit-content">
 	      		</div>

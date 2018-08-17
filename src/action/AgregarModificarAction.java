@@ -15,8 +15,8 @@ public class AgregarModificarAction extends EditarAction{
 				addFieldError("cerveceria.nombre","Ingrese un nombre");
 			if(cerveceria.getDireccion().length()==0)
 				addFieldError("cerveceria.direccion","Ingrese una direccion");
-//			if(cerveceria.getArchivoImagen().getName().toLowerCase().endsWith(".jpg"))
-//				addFieldError("cerveceria.archivoImagen","Ingrese archivo.jpg");
+			if(cerveceria.getPuntaje()>10 || cerveceria.getPuntaje()<0)
+				addFieldError("cerveceria.puntaje","Ingrese un puntaje entre 0 y 10");
 		}
 	}
 

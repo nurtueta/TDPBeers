@@ -13,20 +13,26 @@
     <title>Cerveceria - agregar</title>
   </head>
   <body>
-  	<div style="display:flex;flex-direction:  column;align-items: center;height:  100vh;justify-content: center;">
-	    <s:form action="Agregar" namespace="/">
-			<table>
-				<s:textfield name="cerveceria.nombre" label="Nombre: "/>
-				<s:textfield name="cerveceria.direccion" label="Direccion: "/>
-				<s:textfield name="cerveceria.mejorVariedad" label="Mejor variedad: "/>
-				<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
-				<s:file name="archivo" label="Carga Imagen .jpg" enctype="multipart/form-data"/>
-				<tr><td><s:submit value="Agregar"/></td></tr>
-			</table>
-		</s:form>
-		<s:form action="Administrador" namespace="/">
-			<s:submit value="Cancelar"/>
-		</s:form>
+  	<div class="bg-primary" style="display:flex;flex-direction:  column;align-items: center;height:  100vh;justify-content: center;">
+  		<div class="bg-light"  style="padding:  30px; border-radius: 2rem!important;">
+	  		<div>
+			    <s:form action="Agregar" namespace="/">
+					<table>
+						<s:textfield name="cerveceria.nombre" label="Nombre: "/>
+						<s:textfield name="cerveceria.direccion" label="Direccion: "/>
+						<s:textfield name="cerveceria.mejorVariedad" label="Mejor variedad: "/>
+						<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
+						<s:file name="archivo" label="Carga Imagen .jpg" enctype="multipart/form-data"/>
+						<tr><td><s:submit value="Agregar"/></td></tr>
+					</table>
+				</s:form>
+			</div>
+			<div style="display: flex;justify-content: flex-end;">
+				<s:form action="Administrador" namespace="/">
+					<s:submit value="Cancelar"/>
+				</s:form>
+			</div>
+		</div>
 	</div>
  </body>
 </html>

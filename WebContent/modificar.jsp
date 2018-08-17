@@ -13,19 +13,25 @@
     <title>Cerveceria - modificar</title>
 </head>
 <body>
-	<div style="display:flex;flex-direction:  column;align-items: center;height:  100vh;justify-content: center;">
-		<s:form action="Editar" namespace="/">
-			<table>
-				<s:textfield name="cerveceria.nombre" label="Nombre: " readonly="true"/>
-				<s:textfield name="cerveceria.direccion" label="Direccion: "/>
-				<s:textfield name="cerveceria.mejorVariedad" label="Mejor variedad: "/>
-				<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
-				<tr><td><s:submit value="Modificar" method="modificarCerveceria"/></td></tr>
-			</table>
-		</s:form>
-		<s:form action="Administrador" namespace="/">
-			<s:submit value="Cancelar"/>
-		</s:form>
+	<div class="bg-primary" style="display:flex;flex-direction:  column;align-items: center;height:  100vh;justify-content: center;">
+		<div class="bg-light"  style="padding:  30px; border-radius: 2rem!important;">
+			<div>
+				<s:form action="Editar" namespace="/">
+					<table>
+						<s:textfield name="cerveceria.nombre" label="Nombre: " readonly="true"/>
+						<s:textfield name="cerveceria.direccion" label="Direccion: "/>
+						<s:textfield name="cerveceria.mejorVariedad" label="Mejor variedad: "/>
+						<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
+						<tr><td><s:submit value="Modificar" method="modificarCerveceria"/></td></tr>
+					</table>
+				</s:form>
+			</div>
+			<div style="display: flex;justify-content: flex-end;">
+				<s:form action="Administrador" namespace="/">
+					<s:submit value="Cancelar"/>
+				</s:form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
