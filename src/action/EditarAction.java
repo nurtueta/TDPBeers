@@ -1,6 +1,8 @@
 package action;
 
-import org.apache.struts2.components.File;
+
+
+import java.io.File;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -19,13 +21,29 @@ public abstract class EditarAction extends ActionSupport{
 	protected String nombreCerveceria;
 	protected Cerveceria cerveceria;
 	protected listaCervecerias lista;
-	protected File archivo;
+	protected File upload;
 	
 	
 	public EditarAction() {
 		lista=new listaCervecerias();
 	}
 	
+	public listaCervecerias getLista() {
+		return lista;
+	}
+
+	public void setLista(listaCervecerias lista) {
+		this.lista = lista;
+	}
+
+	public File getUpload() {
+		return upload;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
 	public abstract void validate();
 	
 	public String getNombreCerveceria() {

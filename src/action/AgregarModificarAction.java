@@ -1,6 +1,6 @@
 package action;
 
-import org.apache.struts2.components.File;
+import java.io.File;
 
 public class AgregarModificarAction extends EditarAction{
 
@@ -20,6 +20,14 @@ public class AgregarModificarAction extends EditarAction{
 		}
 	}
 
+	public void setUpload(File f) {
+		upload=f;
+	}
+	
+	public File getUpload() {
+		return upload;
+	}
+	
 	public String modificar() {
 		setCerveceria(lista.buscarCerveza(nombreCerveceria));
 		return "modificar";
@@ -31,11 +39,8 @@ public class AgregarModificarAction extends EditarAction{
 	}
 	
 	public String agregarCerveceria() {
+		cerveceria.setArchivoImagen(upload);
 		lista.agregarCerveceria(cerveceria);
-		if(archivo==null)
-			System.out.println("archivo vacio");
-		else
-			System.out.println(archivo.getId());
 		return "agregar";
 	}
 	

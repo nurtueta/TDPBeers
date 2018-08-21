@@ -16,13 +16,13 @@
   	<div class="bg-primary" style="display:flex;flex-direction:  column;align-items: center;height:  100vh;justify-content: center;">
   		<div class="bg-light"  style="padding:  30px; border-radius: 2rem!important;">
 	  		<div>
-			    <s:form action="Agregar" namespace="/">
+			    <s:form action="Agregar" namespace="/" enctype="multipart/form-data">
 					<table>
-						<s:textfield name="cerveceria.nombre" label="Nombre: "/>
+						<s:textfield name="cerveceria.nombre" label="Nombre: " />
 						<s:textfield name="cerveceria.direccion" label="Direccion: "/>
 						<s:textfield name="cerveceria.mejorVariedad" label="Mejor variedad: "/>
 						<s:textfield name="cerveceria.puntaje" label="Puntaje: "/>
-						<s:file name="archivo" label="Carga Imagen .jpg" enctype="multipart/form-data"/>
+						<s:file name="upload" label="Carga Imagen .jpg" />
 						<tr><td><s:submit value="Agregar"/></td></tr>
 					</table>
 				</s:form>

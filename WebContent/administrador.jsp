@@ -38,6 +38,7 @@
 	  			border-radius: 2rem!important;">
 	      		<div class="col-md-4">
 	      			<img src="<%out.print(cerveza.getImagen());%>" class="rounded col-md-12" width="fit-content" height="fit-content">
+	      			
 	      		</div>
 		      	<div class="col-md-8">
 		      		<table class="table table-striped">
@@ -48,7 +49,7 @@
                         	</tr>
                         	<tr class="row">
                                 <th class="col-md-4">Direccion:</th>
-                            	<td class="col-md-8"><%out.println(cerveza.getDireccion());%></td>
+                            	<td class="col-md-8"><%out.print(cerveza.getDireccion());%></td>
                         	</tr>
                         	<tr class="row">
                                 <th class="col-md-4">Mejor variedad:</th>

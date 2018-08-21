@@ -14,6 +14,10 @@
         </action>
         
         <action name="Editar" class="action.AgregarModificarAction">
+        	<interceptor-ref name = "basicStack"/>
+  			 <interceptor-ref name = "fileUpload">
+     			 <param name = "allowedTypes">image/jpeg,image/gif</param>
+  			</interceptor-ref>
         	<result name="modificado">/administrador.jsp</result>
         	<result name="input">/modificar.jsp</result>
         	<result name="modificar">/modificar.jsp</result>

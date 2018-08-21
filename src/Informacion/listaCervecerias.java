@@ -3,6 +3,8 @@ package Informacion;
 
 import java.io.*;
 import java.util.ArrayList;
+
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -58,9 +60,9 @@ public class listaCervecerias {
 	 * @param archivo de tipo File
 	 */
 	private void CargarImagenCerv(File archivo)
-	{
+	{	
 		try
-		{
+		{	
 			String rutaImagen="img/";
 			int i=archivo.getName().length();
 			for(int j=0;j<(i-3);j++)
@@ -68,11 +70,13 @@ public class listaCervecerias {
 				rutaImagen+=archivo.getName().charAt(j);
 			}
 			rutaImagen+="jpg";
-			String ruta=ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/");
+			System.out.println(rutaImagen);
+			String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/";
 			File af = new File(ruta+rutaImagen);
 			if (!af.exists()) { 
 				rutaImagen="img/not found.jpg";
 			}
+			System.out.println(rutaImagen);
 			cerv.setImagen(rutaImagen);
 		}
 		catch(Exception e) {}
@@ -144,7 +148,6 @@ public class listaCervecerias {
 	 */
 	public void agregarCerveceria(Cerveceria cerv)
 	{
-		//File archivoNuevo=new File (ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt"));
 		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
 		File archivoNuevo= new File(ruta);
 		try {
@@ -156,10 +159,15 @@ public class listaCervecerias {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		//agregar imagen de variable y archivoImagen
-		//System.out.println(cerv.getArchivoImagen().getId());
-			
+		String rutaImagen="/home/nahuel/Documentos/TDPBeers/WebContent/img/";
+		try {
+	     	 File destFile  = new File(rutaImagen, cerv.getNombre()+".jpg");
+	         FileUtils.copyFile(cerv.getArchivoImagen(), destFile);
+	  
+	      } catch(IOException e) {
+	         e.printStackTrace();
+	         System.out.println("Error al copiar archivo");
+	      }
 	}
 	
 	/**
