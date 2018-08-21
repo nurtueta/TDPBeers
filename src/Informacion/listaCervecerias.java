@@ -3,9 +3,7 @@ package Informacion;
 
 import java.io.*;
 import java.util.ArrayList;
-
 import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
 
 /**
  * Clase encargada de la logica de la lista de cervecerias. Creacion, asignacion de atributos, agregacion, elimininacion y modificacion de las cervecerias.
@@ -70,17 +68,15 @@ public class listaCervecerias {
 				rutaImagen+=archivo.getName().charAt(j);
 			}
 			rutaImagen+="jpg";
-			System.out.println(rutaImagen);
+			
 			String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/";
 			File af = new File(ruta+rutaImagen);
 			if (!af.exists()) { 
 				rutaImagen="img/not found.jpg";
 			}
-			System.out.println(rutaImagen);
 			cerv.setImagen(rutaImagen);
 		}
 		catch(Exception e) {}
-		
 	}
 	
 	/**
@@ -148,6 +144,12 @@ public class listaCervecerias {
 	 */
 	public void agregarCerveceria(Cerveceria cerv)
 	{
+		cargarTexto(cerv);
+		if(cerv.getArchivoImagen()!=null)
+			cargarImagen(cerv);
+	}
+
+	private void cargarTexto(Cerveceria cerv) {
 		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
 		File archivoNuevo= new File(ruta);
 		try {
@@ -159,6 +161,10 @@ public class listaCervecerias {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+	}
+	
+	private void cargarImagen(Cerveceria cerv) {
 		String rutaImagen="/home/nahuel/Documentos/TDPBeers/WebContent/img/";
 		try {
 	     	 File destFile  = new File(rutaImagen, cerv.getNombre()+".jpg");
@@ -180,7 +186,7 @@ public class listaCervecerias {
 		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
 		File archivoEliminar= new File(ruta);
 		archivoEliminar.delete();
-		agregarCerveceria(cerv);
+		cargarTexto(cerv);
 	}
 	
 	/**
@@ -201,7 +207,5 @@ public class listaCervecerias {
 	public void setLista(ArrayList<Cerveceria> lista) {
 		this.lista = lista;
 	}
-
-
 }
 

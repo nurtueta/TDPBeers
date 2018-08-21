@@ -39,7 +39,8 @@ public class AgregarModificarAction extends EditarAction{
 	}
 	
 	public String agregarCerveceria() {
-		cerveceria.setArchivoImagen(upload);
+		if(upload!=null)
+			cerveceria.setArchivoImagen(upload);
 		lista.agregarCerveceria(cerveceria);
 		return "agregar";
 	}

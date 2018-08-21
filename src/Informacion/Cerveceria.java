@@ -14,11 +14,11 @@ public class Cerveceria{
 	protected String imagen;
 	protected File archivoImagen;
 	protected String archivoImagenNombre;
+    protected String contentType;
 	protected String direccion;
 	protected int puntaje;
 	protected String mejorVariedad;
-    protected String contentType;
-    protected String filename;
+
 
 	public String getArchivoImagenNombre() {
 		return archivoImagenNombre;
@@ -34,14 +34,6 @@ public class Cerveceria{
 
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
-	}
-
-	public String getFilename() {
-		return filename;
-	}
-
-	public void setFilename(String filename) {
-		this.filename = filename;
 	}
 
 	public Cerveceria() {
