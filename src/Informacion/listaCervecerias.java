@@ -71,6 +71,7 @@ public class listaCervecerias {
 			
 			String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/";
 			File af = new File(ruta+rutaImagen);
+			
 			if (!af.exists()) { 
 				rutaImagen="img/not found.jpg";
 			}
@@ -145,10 +146,20 @@ public class listaCervecerias {
 	public void agregarCerveceria(Cerveceria cerv)
 	{
 		cargarTexto(cerv);
-		if(cerv.getArchivoImagen()!=null)
+		if(cerv.getArchivoImagen()!=null) {
 			cargarImagen(cerv);
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
+	/**
+	 * metodo privado encargado de crear el archivo de texto correspondiente a la cerveza
+	 * @param cerv de tipo Cerveceria
+	 */
 	private void cargarTexto(Cerveceria cerv) {
 		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
 		File archivoNuevo= new File(ruta);
@@ -164,6 +175,10 @@ public class listaCervecerias {
 		
 	}
 	
+	/**
+	 * metodo privado encargado de crear la imagen nueva en el directorio especificado
+	 * @param cerv de tipo Cerveceria
+	 */
 	private void cargarImagen(Cerveceria cerv) {
 		String rutaImagen="/home/nahuel/Documentos/TDPBeers/WebContent/img/";
 		try {
@@ -198,6 +213,10 @@ public class listaCervecerias {
 		String ruta="/home/nahuel/Documentos/TDPBeers/WebContent/WEB-INF/files/Archivos/"+cerv.getNombre()+".txt";
 		File archivoEliminar= new File(ruta);
 		archivoEliminar.delete();
+		ruta="/home/nahuel/Documentos/TDPBeers/WebContent/img/"+cerv.getNombre()+".jpg";
+		archivoEliminar= new File(ruta);
+		archivoEliminar.delete();
+		
 	}
 	
 	public ArrayList<Cerveceria> getLista() {
